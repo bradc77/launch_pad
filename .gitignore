@@ -16,6 +16,12 @@ gen/
 .gradle/
 build/
 
+# idea files
+*.iml
+/.idea/workspace.xml
+/.idea/modules.xml
+/.idea/libraries
+
 # Local configuration file (sdk path, etc)
 local.properties
 
