@@ -13,8 +13,10 @@
 	tools:showIn = "@layout/activity_states_list"
 	tools:context = "com.launch_pad.dixie.launch_pad_lists.StatesListActivity">
 
-	<TextView
-		android:text = "Hello World!"
-		android:layout_width = "wrap_content"
-		android:layout_height = "wrap_content" />
+	<ListView
+		android:id="@+id/states_list_view"
+		android:layout_width = "match_parent"
+		android:layout_height = "match_parent">
+
+	</ListView>
 </RelativeLayout>
