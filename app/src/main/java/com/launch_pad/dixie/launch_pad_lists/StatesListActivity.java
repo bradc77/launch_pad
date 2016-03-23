@@ -13,6 +13,7 @@ public class StatesListActivity extends AppCompatActivity
 {
 	private ListView mStatesListView;
 	private ArrayList<String> mStateData;
+	private ArrayList<String> mCapitalData;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -26,7 +27,7 @@ public class StatesListActivity extends AppCompatActivity
 
 		mStatesListView = (ListView) findViewById(R.id.states_list_view);
 
-		mStatesListView.setAdapter(new StatesListAdapter(StatesListActivity.this, mStateData));
+		mStatesListView.setAdapter(new StatesListAdapter(StatesListActivity.this, mStateData, mCapitalData));
 	}
 
 	@Override
@@ -71,6 +72,23 @@ public class StatesListActivity extends AppCompatActivity
 		for (String thisName : names)
 		{
 			mStateData.add(thisName);
+		}
+
+		String [] capitals = { "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida",
+				"Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine",
+				"Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska",
+				"Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota",
+				"Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee",
+				"Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming" };
+
+		if (mCapitalData == null)
+		{
+			mCapitalData = new ArrayList<String>();
+		}
+
+		for (String thisName : capitals)
+		{
+			mCapitalData.add(thisName);
 		}
 	}
 }

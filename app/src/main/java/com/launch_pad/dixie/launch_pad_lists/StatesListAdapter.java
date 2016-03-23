@@ -16,14 +16,16 @@ import java.util.ArrayList;
 public class StatesListAdapter extends BaseAdapter
 {
 	private ArrayList<String> mRows = null;
+	private ArrayList<String> mCapitals = null;
 	private Context mContext = null;
 
-	public StatesListAdapter(Context context, ArrayList<String> data)
+	public StatesListAdapter(Context context, ArrayList<String> data, ArrayList<String> capitalData)
 	{
 		super();
 
 		mContext = context;
 		mRows = data;
+		mCapitals = capitalData;
 	}
 
 
@@ -71,6 +73,7 @@ public class StatesListAdapter extends BaseAdapter
 
 			holder = new ViewHolder();
 			holder.name = (TextView) convertView.findViewById(R.id.state_name);
+			holder.capital = (TextView) convertView.findViewById(R.id.capital_name);
 			holder.flag = (ImageView) convertView.findViewById(R.id.state_flag);
 
 			convertView.setTag(holder);
@@ -82,8 +85,10 @@ public class StatesListAdapter extends BaseAdapter
 
 		// Populate values in the cell
 		String stateName = mRows.get(position);
+		String capitalName = mCapitals.get(position);
 
 		holder.name.setText(stateName);
+		holder.capital.setText(capitalName);
 
 		String flagName = stateName.toLowerCase() + "_flag";
 		flagName = flagName.replaceAll(" ", "_");
@@ -97,6 +102,7 @@ public class StatesListAdapter extends BaseAdapter
 	private static class ViewHolder
 	{
 		public TextView name;
+		public TextView capital;
 		public ImageView flag;
 	}
 }
