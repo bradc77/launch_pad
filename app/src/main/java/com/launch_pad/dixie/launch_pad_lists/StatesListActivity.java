@@ -1,10 +1,13 @@
 package com.launch_pad.dixie.launch_pad_lists;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -28,6 +31,24 @@ public class StatesListActivity extends AppCompatActivity
 		mStatesListView = (ListView) findViewById(R.id.states_list_view);
 
 		mStatesListView.setAdapter(new StatesListAdapter(StatesListActivity.this, mStateData, mCapitalData));
+
+		mStatesListView.setOnItemClickListener(new ListView.OnItemClickListener()
+		{
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+			{
+				Intent intent = new Intent(StatesListActivity.this, StateDetails.class);
+
+				String name = mStateData.get(position);
+
+				Bundle bundle = new Bundle();
+				bundle.putString("state_name", name);
+
+				intent.putExtras(bundle);
+
+				startActivity(intent);
+			}
+		});
 	}
 
 	@Override
